@@ -6,10 +6,10 @@ class IP:
         self.ipIndex2 = np.array([4, 1, 3, 5, 7, 2, 8, 6])
 
     # 初始置换
-    def ip1(self, block):
+    def initialP(self, block):
         return block[self.ipIndex1 - 1]
 
     # 逆初始置换
-    def ip2(self, block):
+    def initialP_Inverse(self, block):
         return block[self.ipIndex2 - 1]
 

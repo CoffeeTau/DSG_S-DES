@@ -30,13 +30,13 @@ class SubKeyGenerator:
         temp1 = self.permutation10(initialKey)
         if len(temp1) != 10:
             print("P10错误！")
-        print("P10之后为：", temp1)
+        # print("P10之后为：", temp1)
 
         if k == 1:
             temp2 = self.subKeyGenerateShift1(temp1)
         elif k == 2:
             temp2 = self.subKeyGenerateShift2(temp1)
-        print("shift之后为：", temp2)
+        # print("shift之后为：", temp2)
         if (len(temp2) != 10):
             print("shift错误!")
             return
@@ -46,7 +46,7 @@ class SubKeyGenerator:
             print("子密钥生成错误！")
             return
 
-        print("子密钥为", key)
+        # print("子密钥为", key)
         return key
 
 

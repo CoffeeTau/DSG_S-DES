@@ -7,9 +7,17 @@ class IP:
 
     # 初始置换
     def initialP(self, block):
+        # if not isinstance(block, np.ndarray):
+        #     block = np.array(block)
+        # if block.ndim == 0:
+        #     block = np.array([block])
         return block[self.ipIndex1 - 1]
 
     # 逆初始置换
     def initialP_Inverse(self, block):
+        # if not isinstance(block, np.ndarray):
+        #     block = np.array(block)
+        # if block.ndim == 0:
+        #     block = np.array([block])
         return block[self.ipIndex2 - 1]
 

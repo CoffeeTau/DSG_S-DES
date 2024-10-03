@@ -165,7 +165,7 @@ if __name__ == '__main__':
     rho, p_value = SA.correlationAnalysis('K-C', 'Spearman')
     print("密钥和密文的Spearman统计量:", rho)
     print("密钥和密文的Spearman的p值:", p_value)
-
+    #
     # # 在调用 avalancheTest 之前输出调试信息
     # print("Before avalanche test")
     # diffusion_proportion, confusion_proportion = SA.avalancheTest()
@@ -174,18 +174,40 @@ if __name__ == '__main__':
     # print("明文雪崩效应比例:", diffusion_proportion)
     # print("密钥雪崩效应比例:", confusion_proportion)
 
-    # 绘制散点图
-    plt.scatter(plainText_decimal, cipherText_decimal, c='blue', s=3)
-    plt.xlabel('PlainText (Decimal)')
-    plt.ylabel('CipherText (Decimal)')
-    plt.title('Scatter Plot of Plaintext vs Ciphertext')
-    plt.show()
+    # # 绘制散点图
+    # plt.scatter(plainText_decimal, cipherText_decimal, c='blue', s=3)
+    # plt.xlabel('PlainText (Decimal)')
+    # plt.ylabel('CipherText (Decimal)')
+    # plt.title('Scatter Plot of Plaintext vs Ciphertext')
+    # plt.show()
 
-    # 进行暴力破解
-    plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])
-    cipherText = np.array([1, 1, 1, 1, 0, 1, 1, 0])
-    time_taken = SA.bruteForceAttack(plainText, cipherText)
-    print("用时:", time_taken)
+
+    # # 报告的散点图生成
+    # # 计算明文与密文的异或为0的个数
+    # xor_zero_count = np.sum(plainText_decimal == cipherText_decimal)
+    #
+    # # 初始化数据列表
+    # output_data = []
+    # # 输出key_decimal和cipherText_decimal的关系
+    # for key, ct in zip(key_decimal, cipherText_decimal):
+    #     # 将cipherText填充为10位二进制
+    #     ct_binary = bin(ct)[2:].zfill(10)  # 将cipherText填充为10位
+    #     key_binary = bin(key)[2:].zfill(10)  # 将key填充为10位
+    #     # 计算二者对应位置不同元素的个数
+    #     difference_count = np.sum(np.array(list(key_binary)) != np.array(list(ct_binary)))
+    #     output_data.append([key, ct, difference_count])  # 将结果添加到数据列表中
+    # # 打印结果
+    # for row in output_data:
+    #     print(f"{row},")  # 添加逗号以满足要求
+    # print("明文与密文的异或为0的个数:", xor_zero_count)
+
+
+
+    # # 进行暴力破解
+    # plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])
+    # cipherText = np.array([1, 1, 1, 1, 0, 1, 1, 0])
+    # time_taken = SA.bruteForceAttack(plainText, cipherText)
+    # print("用时:", time_taken)
 
 
 

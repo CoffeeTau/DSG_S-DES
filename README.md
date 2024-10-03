@@ -21,12 +21,12 @@ SA = StatisticalAnalysis()
 plainText_decimal, cipherText_decimal, key_decimal = SA.generateGroup(10000)
 ```
 为了便于可视化，研究相互关系的统计规律，我们将明文、密钥和密文由二进制串转为十进制数。我们将明文-密文对、密钥-密文对绘制成散点图，其中散点的颜色值代表明文与密文或者密钥与密文的相似度。可视化结果如下图所示。
-![](images\Diffusion and Confusion Scatterplot.png)
+![Diffusion and Confusion Scatterplot](images/Diffusion and Confusion Scatterplot.png)
 如图，我们可以看到明文-密文对、密钥-密文对分布的很均匀，说明扩散和混淆效果较好，破坏了统计规律。
 ### Pearson与Spearman分析
 散点图只能粗略看出SDES算法的效果，为了量化效果，我们做了Pearson与Spearman分析。
 
-![](images/Pearson and Spearman.png)
+![Pearson and Spearman](images/Pearson and Spearman.png)
 
 ## 雪崩效应分析
 

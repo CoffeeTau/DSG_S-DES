@@ -100,7 +100,33 @@ Spearman统计量的p值为`0.094`，显著拒绝明文和密文具有相关性�
    pip install -r requirements.txt
    ```
 ## 代码结构
-代码结构如下图所示：
+项目代码结构如下:
+
+```
+├── .git
+├── .idea
+├── app.py
+├── Function_f.py
+├── images
+├── IP.py
+├── loginSQL.py
+├── plaintext_key_ciphertext.csv
+├── README.md
+├── requirements.txt
+├── SDES.py
+├── static
+├── StatisticalAnalysis.py
+├── SubKeyGenerator.py
+├── SW.py
+├── templates
+│   ├── error.html
+│   ├── index.html
+│   ├── system.html
+│   └── user-register.html
+├── tree.py
+├── utils.py
+└── __pycache__
+```
 
 ## 模块说明
 ### 算法部分

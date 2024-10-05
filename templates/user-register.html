@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 样式省略，保持不变 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .register-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .register-container h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="password"],
+        .register-container input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .register-container button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+        /* 提示框样式 */
+        .alert {
+            display: none;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h1>用户注册</h1>
+    <form id="registerForm">
+        <input type="text" name="username" placeholder="用户名" required />
+        <input type="password" name="password" placeholder="密码" required />
+        <button type="submit">立即注册</button>
+    </form>
+    <p class="text-center text-muted small-2"><a href="/">返回登录</a></p>
+    <div class="alert" id="alertBox"></div> <!-- 提示框 -->
+</div>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // 阻止默认表单提交
+
+    const formData = new FormData(this);
+
+    fetch('/user-register', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const alertBox = document.getElementById('alertBox');
+        if (data.success) {
+            alertBox.style.display = 'none'; // 隐藏提示框
+            window.location.href = data.redirect; // 注册成功后重定向到登录页面
+        } else {
+            alertBox.innerText = data.message; // 显示错误信息
+            alertBox.style.display = 'block'; // 显示提示框
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+</script>
+
+</body>
+</html>

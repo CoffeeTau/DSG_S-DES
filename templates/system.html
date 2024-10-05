@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <title>我的网页 - htmlpage.cn</title>
+</head>
+
+<body>
+  <div>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+      }
+
+      .logo path {
+        pointer-events: none;
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 7;
+        stroke: rgb(255, 255, 255);
+      }
+
+      .wechat-group img {
+        max-width: 220px;
+        height: auto;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        margin-top: 0px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: auto;
+        width: 100%;
+      }
+
+      .welcome-img img {
+        width: 100%;
+      }
+
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0px) scale(1) !important;
+      }
+
+      .fdb-block img {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      .fdb-block .fdb-touch {
+        border-top-width: 5px;
+        border-top-style: solid;
+        border-top-color: rgb(82, 139, 255);
+      }
+
+      .fdb-block .fdb-box {
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgb(255, 255, 255);
+        color: rgb(68, 68, 68);
+        padding-top: 60px;
+        padding-right: 40px;
+        padding-bottom: 60px;
+        padding-left: 40px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .fdb-block h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5em;
+        margin-top: 0.3em;
+        font-weight: 400;
+      }
+
+      .fdb-block .text-h3,
+      .fdb-block h3 {
+        font-size: 0.875rem;
+        margin-bottom: 0.5em;
+        margin-top: 0.3em;
+        font-weight: 400;
+      }
+
+      .fdb-block img+h1,
+      .fdb-block img+h2 {
+        margin-top: 40px;
+      }
+
+      a {
+        color: rgb(0, 123, 255);
+        text-decoration-line: none;
+        text-decoration-thickness: initial;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+        background-color: transparent;
+      }
+
+      a:hover {
+        color: rgb(0, 86, 179);
+        text-decoration-line: underline;
+        text-decoration-thickness: initial;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+      }
+
+      #header:not(.sticky-header) #logo a {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .c99904 {
+        display: none;
+      }
+
+      .c114105 {
+        float: left;
+        width: 68.7px;
+        en: 1;
+      }
+    </style>
+    <div>
+      <link rel="preload" href="/static/img/slider-left-dec.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/services-right-dec.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-01.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-02.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-03.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-04.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/services-left-dec.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/about-bg.jpg" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/client-bg.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/regular-table-top.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-bg.jpg" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-hover-01.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-hover-02.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-hover-03.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/service-icon-hover-04.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/regular-table-bottom.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/pro-table-top.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/pro-table-bottom.png" as="image" crossorigin="" />
+      <link rel="preload" href="/static/img/footer-bg.png" as="image" crossorigin="" /><!-- Bootstrap core CSS -->
+      <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/static/css/templatemo-chain-app-dev.css" />
+      <link rel="stylesheet" href="/static/css/animated.css" />
+      <link rel="stylesheet" href="/static/css/owl.css" /><!-- ***** Header Area Start ***** -->
+      <header data-wow-duration="0.75s" data-wow-delay="0s" class="header-area header-sticky wow slideInDown">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="main-nav"><!-- ***** Logo Start ***** --><a href="index.html"
+                  class="logo"></a><!-- ***** Logo End ***** --><!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                  <li class="scroll-to-section"><a href="#top" class="active">介绍</a></li>
+                  <li class="scroll-to-section"><a href="#services">服务</a></li>
+                  <li class="scroll-to-section"><a href="#pricing">DES-加解密</a></li>
+                  <li class="scroll-to-section"><a href="#newsletter">统计分析</a></li>
+                  <li class="scroll-to-section"><a href="#bruteForce">暴力破解</a></li>
+                  <li class="scroll-to-section"><a href="#about">关于我们</a></li>
+                  <li class="scroll-to-section"><a href="#404"></a></li>  
+                </ul><a class="menu-trigger"><span>Menu</span></a><!-- ***** Menu End ***** -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header><!-- ***** Header Area End ***** -->
+      <div id="modal" class="popupContainer c99904"><!-- Username & Password Login form -->
+        <div class="user_login">
+          <form method="get"><label>Email / Username</label><input type="text" /><br /><label>Password</label><input
+              type="password" /><br />
+            <div class="checkbox"><input type="checkbox" id="remember" /><label for="remember">Remember me on this
+                computer</label></div>
+            <div class="action_btns">
+              <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left">
+                  </i> Back</a></div>
+              <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+            </div>
+          </form><a href="#" class="forgot_password">Forgot password?</a>
+        </div><!-- Register Form -->
+        <div class="user_register">
+          <form method="get"><label>Full Name</label><input type="text" /><br /><label>Email Address</label><input
+              type="email" /><br /><label>Password</label><input type="password" /><br />
+            <div class="checkbox"><input type="checkbox" id="send_updates" /><label for="send_updates">Send me
+                occasional email updates</label></div>
+            <div class="action_btns">
+              <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left">
+                  </i> Back</a></div>
+              <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="top" data-wow-duration="1s" data-wow-delay="0.5s" class="main-banner wow fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-6 align-self-center">
+                  <div data-wow-duration="1s" data-wow-delay="1s"
+                    class="left-content show-up header-text wow fadeInLeft">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h2>一起来尝试加解密您的信息吧！
+                        </h2>
+                        <p>
+                          本软件基于S-DES（简化的数据加密标准）算法，提供简单易用的界面，让用户能够轻松进行消息的加密和解密。用户只需输入待加密的明文和自定义密钥，即可生成安全的密文。通过解密功能，用户可以使用相同的密钥恢复原始消息。该软件旨在帮助用户理解对称加密的基本原理，同时提高信息安全意识。
+                        </p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="white-button first-button scroll-to-section">
+                        </div>
+                        <div class="white-button scroll-to-section">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div data-wow-duration="1s" data-wow-delay="0.5s" class="right-image wow fadeInRight"><img
+                      src="/static/img/slider-dec.png" alt="" /></div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="services" class="services section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <div data-wow-duration="1s" data-wow-delay="0.5s" class="section-heading wow fadeInDown">
+                <h4>为您提供以下服务
+                </h4><img src="/static/img/heading-line-dec.png" alt="" />
+                <p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <a href="#pricing">> 
+              <div class="service-item first-service">
+                <div class="icon">
+                </div>
+                <h4>信息加密
+                </h4>
+                <p>通过S-DES算法对输入的明文消息进行加密，生成密文
+                </p>
+              </a>
+                <div class="text-button">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="service-item second-service">
+                <a href="#pricing">> 
+                <div class="icon">
+                </div>
+                <h4>信息解密
+                </h4>
+                <p>您可以输入密文，使用相同的密钥进行解密，恢复原始消息。
+                </p>
+                </a>
+                <div class="text-button">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="service-item third-service">
+                <a href="#newsletter">
+                <div class="icon">
+                </div>
+                <h4>算法统计分析
+                </h4>
+                <p>使用统计方法评估加密算法混淆和扩散特性，确保安全性
+                </p>
+                </a>
+                <div class="text-button">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="service-item fourth-service">
+                <a href="#bruteForce">
+                <div class="icon">
+                </div>
+                <h4>暴力破解
+                </h4>
+                <p>使用暴力破解的手段了解加密算法的弱点，提高安全性
+                </p>
+              </a>
+                <div class="text-button">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pricing" class="pricing-tables">
+        <div class="section-heading">
+          <div class="htmlpage-cell c114105">
+            <div>
+            </div>
+          </div>
+          <h4 id="iqy8wu" class="c138331">S-DES加解密
+          </h4>
+        </div>
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing-item-regular"><span class="price">输入</span>
+                <h4>请选择您的明/密文类型
+                </h4>
+                <form method="get" class="radio-form">
+                  <div class="radio-container">
+                    <input type="radio" name="n1" id="bit" value="bit">
+                    <label class="radio-label" for="bit">bit</label>
+                  </div>
+                  <div class="radio-container">
+                    <input type="radio" name="n1" id="ascii" value="ASCII">
+                    <label class="radio-label" for="ascii">ASCII</label>
+                  </div>
+                </form>
+                <div class="icon">
+                </div>
+                <h4>请输入您的明/密文
+                </h4>
+                
+                <input type="text" id="message" placeholder="请输入密文或明文" />
+
+                <h4>
+                </h4>
+                <ul>
+                  <li class="non-function">
+                  </li>
+                </ul>
+                <div class="border-button"><a href="javascript:void(0)" id="in30bb" onclick = "myEncryption()"><b>加密
+                    </b></a>
+                    <a href="javascript:void(0)" id="in30bb" onclick = "myDecryption()"><b>解密
+                    </b></a></div>
+                <div class="border-button">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing-item-pro"><span class="price">密钥</span>
+                <h4>请输入您的密钥
+                </h4>
+                <h4>注意：请输入10bit!
+                </h4>
+
+                <input type="text" id="key" placeholder="请输入密钥..." />
+                <div class="border-button"><a class="c156720"><b>  确认  
+                    </b><br /></a></div>
+              </div>
+            </div>
+
+
+
+            <script>
+              function myEncryption() {
+                // 你的处理代码
+                
+                  // 获取选中的单选按钮
+                const encodingOptions = document.getElementsByName("n1");
+                let selectedEncoding = '';
+                for (const option of encodingOptions) {
+                  if (option.checked) {
+                    selectedEncoding = option.value;
+                    break;
+                  }
+                }
+                const message = document.getElementById("message").value;
+                const key = document.getElementById("key").value;
+
+                // 检查输入是否为空
+                if (!selectedEncoding) {
+                    alert("请确保选择明/密文类型");
+                    return;
+                }
+                if (!message) {
+                    alert("请输入明文/密文");
+                    return;
+                }
+                if (!key) {
+                    alert("请输入密钥");
+                    return;
+                }
+                const messageLength = message.length;
+                const keyLength = key.length; 
+                if (selectedEncoding=="bit" && messageLength!= 8 || keyLength!= 10){
+                    alert("请注意密/明文为8位并且密钥为10位");     // 弹出提示框
+                    return;
+                }
+                
+                alert("已确认提交");
+
+                fetch('/encrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `n1=${selectedEncoding}&message=${message}&key=${key}`
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById("result").textContent = data.result;
+                    })
+                    .catch(error => console.error('Error:', error));
+              }
+
+              function myDecryption(){
+
+                  // 获取选中的单选按钮
+                const encodingOptions = document.getElementsByName("n1");
+                let selectedEncoding = '';
+                for (const option of encodingOptions) {
+                  if (option.checked) {
+                    selectedEncoding = option.value;
+                    break;
+                  }
+                }
+
+                const message = document.getElementById("message").value;
+                const key = document.getElementById("key").value;
+
+                // 检查输入是否为空
+                if (!selectedEncoding) {
+                    alert("请确保选择明/密文类型");
+                    return;
+                }
+                if (!message) {
+                    alert("请输入明文/密文");
+                    return;
+                }
+                if (!key) {
+                    alert("请输入密钥");
+                    return;
+                }
+                const messageLength = message.length;
+                const keyLength = key.length; 
+                if (selectedEncoding=="bit" && messageLength!= 8 || keyLength!= 10){
+                    alert("请注意密/明文为8位并且密钥为10位");     // 弹出提示框
+                    return;
+                }
+
+                alert("已确认提交");
+
+                fetch('/decrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `n1=${selectedEncoding}&message=${message}&key=${key}`
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById("result").textContent = data.result;
+                    })
+                    .catch(error => console.error('Error:', error));            
+              }
+
+            </script>
+
+            <div class="col-lg-4">
+              <div class="pricing-item-regular"><span class="price">输出</span>
+                <h4>
+
+                </h4>
+                <h4>以下为您的明/密文结果
+                </h4>
+
+
+                <div class="icon"><img src="/static/img/pricing-table-01.png" alt="" />
+                  <li id="result"></li>
+                </div>
+                <ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      <div id="newsletter" class="pricing-tables">
+        <div class="section-heading">
+          <div class="htmlpage-cell c114105">
+            <div>
+            </div>
+          </div>
+          <h4 id="iqy8wu" class="c138331">统计分析
+          </h4>
+        </div>
+        <div class="container">
+          <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+          </div>
+          <div class="col-lg-6 offset-lg-3">
+          <form id="searchForm">
+          <div class="row">
+          <div class="col-lg-6 col-sm-6">
+          <fieldset>
+          <input type="number" id="plaintextCount" name="plaintextCount" placeholder="请输入要统计的明密文对数" autocomplete="on" required class="email"
+          style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 4px;" />
+          </fieldset>
+          </div>
+          <div class="col-lg-6 col-sm-6">
+          <fieldset>
+          <button type="submit" class="main-button" style="width: 20%; padding: 10px; font-size: 16px; background-color: #333; color: white; border: none; border-radius: 4px;" >确定</button>
+          </fieldset>
+          </div>
+          </div>
+          </form>
+          </div>
+          
+          <!-- 显示 scatter.html 和 动态文字的部分 -->
+          <div class="row">
+          <!-- 生成的 scatter.html 的 iframe -->
+          <div class="col-lg-8">
+          <iframe id="scatterFrame" width="100%" height="500px" frameborder="0"></iframe>
+          </div>
+          
+          <!-- 动态显示明密文对数及后端返回内容的部分 -->
+          <div class="col-lg-4">
+          <div id="plaintextCountDisplay">
+          <p id="plaintextCountText"></p >
+          <p id="resultText"></p >
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+          // 捕获表单提交事件并发送到后端
+          document.getElementById('searchForm').addEventListener('submit', async function (event) {
+          event.preventDefault(); // 阻止表单的默认提交
+          
+          const plaintextCount = document.getElementById('plaintextCount').value;
+          
+          // 发送数据到后端
+          const response = await fetch('/generate-scatter', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ plaintextCount: plaintextCount }),
+          });
+          
+          if (response.ok) {
+          const result = await response.json();
+          
+          // 如果后端成功生成 scatter.html，则更新 iframe 的 src
+          document.getElementById('scatterFrame').src = '/static/scatter.html';
+          
+          // 更新Pearson相关系数
+          document.getElementById('plaintextCountText').innerHTML =
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >明文和密文的Pearson相关系数: ${result.data.pearson_pc}</p >` +
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >密钥和密文的Pearson相关系数: ${result.data.pearson_kc}</p >`;
+          
+          // 更新Spearman统计信息
+          document.getElementById('resultText').innerHTML =
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >明文和密文的Spearman统计量: ${result.data.srho_pc}</p >` +
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >明文和密文的Spearman的p值: ${result.data.svalue_pc}</p >` +
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >密钥和密文的Spearman统计量: ${result.data.srho_kc}</p >` +
+          `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;" >密钥和密文的Spearman的p值: ${result.data.svalue_kc}</p >`;
+          } else {
+          console.error('生成 scatter.html 失败');
+          document.getElementById('resultText').innerText = '生成 scatter.html 时出错';
+          }
+          });
+    </script>
+
+
+      <div id="bruteForce" class="pricing-tables">
+        <div class="section-heading">
+          <div class="htmlpage-cell c114105">
+            <div>
+            </div>
+          </div>
+          <h4 id="iqy8wu" class="c138331">暴力破解
+          </h4>
+        </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="pricing-item-regular"><span class="price">输入</span>
+              <h4>
+              </h4>
+              <div class="icon">
+              </div>
+              <h4>请输入明文
+              </h4>
+              <h4>注意：输入8bit
+              </h4>
+              <input type="text" id="message_plain" placeholder="请输入明文" />
+              <h4>
+              </h4>
+              <ul>
+                <li class="non-function">
+                </li>
+              </ul>
+              <div class="border-button">
+              </div>
+              <div class="border-button">
+                <a href="javascript:void(0)" id="in30bb" onclick = "">
+                  <b>确定</b></a>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-item-regular"><span class="price">输入</span>
+              <div class="icon">
+              </div>
+              <h4>
+              </h4>
+              <h4>请输入密文
+              </h4>
+              <h4>注意：输入8bit
+              </h4>
+              <input type="text" id="message_cipher" placeholder="请输入密文" />
+             
+              <div class="border-button">
+                <a href="javascript:void(0)" id="in30bb" onclick = "mybruteForce()">
+                  <b>破解</b></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+              function mybruteForce() {
+                // 你的处理代码
+
+
+                  const message_plain = document.getElementById("message_plain").value;
+                  const message_cipher = document.getElementById("message_cipher").value;
+                    
+                  const messageLength_plain = message_plain.length;
+                  const messageLength_cipher = message_cipher.length;
+
+
+                  // 检查输入是否为空
+
+                  if (!messageLength_plain||!messageLength_cipher) {
+                      alert("请输入明文/密文");
+                      return;
+                  }
+                  if (messageLength_cipher!= 8 ||messageLength_plain!= 8){
+                      alert("请注意密/明文为8位");     // 弹出提示框
+                      return;
+                  }
+
+                  alert("已确认提交");
+
+                  fetch('/bruteForce', {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/x-www-form-urlencoded',
+                          },
+                          body: `message_plain=${message_plain}&message_cipher=${message_cipher}`
+                      })
+                      .then(response => {
+                          if (!response.ok) {
+                              throw new Error('Network response was not ok');
+                          }
+                          return response.json();
+                      })
+                      .then(data => {
+                          document.getElementById("result_time").textContent = data.time+"s";
+                          // 将密钥格式化为每10个数字为一组，并换行
+                          let key = data.key;                                                    
+                          let s = ''; // 确保s被定义
+                          for (let i = 0; i < key.length; i++) {
+                              s += `<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">密钥${i + 1}: ${key[i].join(' ')}</p>`;
+                          }
+                          document.getElementById("result_key").innerHTML = s; // 显示结果，使用 innerHTML 支持换行
+                          
+                      })
+                      .catch(error => console.error('Error:', error));
+              }
+      </script>        
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4">
+          </div>
+
+          <div class="col-lg-4">
+            <div class="pricing-item-regular"><span class="price">输出</span>
+              <h4>
+
+              </h4>
+              <h4>破解时间:
+              </h4>
+              <h4 id="result_time"></h4>
+              <div class="icon">
+              </div>
+              <h4>
+              </h4>
+              <h4>破解密钥:</h4>
+              <li id="result_key"></li>
+
+              <ul>
+                <li class="non-function">
+                </li>
+              </ul>
+              <div class="border-button">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div id="about" class="about-us section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="section-heading">
+                <h4>关于
+                  <font color="#4b8ef1">我们是做什么的
+                  </font> &amp; 我们是谁
+                </h4><img src="/static/img/heading-line-dec.png" alt="" />
+                <p>我们是重庆大学的DES项目研究团队，专注于加密算法的实现与应用。团队由多位对信息安全充满热情的学生组成，致力于提升数据保护技术，为安全通信提供坚实的技术支持。
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="box-item">
+                    <h4><a href="#">算法实现</a></h4>
+                    <p>
+                    </p>
+                    <li>实现S-DES算法，提供加解密功能; 探索算法的优化与改进，提高性能和安全性。
+                    </li>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="box-item">
+                    <h4><a href="#">安全性分析</a></h4>
+                    <p>
+                    </p>
+                    <li>评估不同算法的安全性，分析潜在的攻击方式; 研究算法的混淆性与扩散性，确保加密强度
+                    </li>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="box-item">
+                    <h4><a href="#">应用开发</a></h4>
+                    <p>
+                    </p>
+                    <li>开发用户友好的软件工具，便于用户进行加解密操作; 提供详细的使用说明和技术支持。
+                    </li>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="box-item">
+                    <h4><a href="#">应用场景研究</a></h4>
+                    <li>
+                    </li>
+                    <li>研究加密算法在云计算、大数据、物联网等领域的应用需求； 开发适用于实际应用场景的加密解决方案。
+                    </li>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <p>我们的目标是研究并实现多种加密算法，包括S-DES、DES及其变体，深入探索其在信息安全中的应用潜力。通过理论与实践相结合，帮助团队成员及用户更好地理解加密机制。
+                  </p>
+                  <div class="gradient-button">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image"><img src="/static/img/about-right-dec.png" alt="" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="clients" class="the-clients">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="naccs">
+                <div class="grid">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/bootstrap.bundle.min.js"></script>
+      <script src="/static/js/owl-carousel.js"></script>
+      <script src="/static/js/animation.js"></script>
+      <script src="/static/js/imagesloaded.js"></script>
+      <script src="/static/js/popup.js"></script>
+      <script src="/static/js/custom.js"></script>
+    </div>
+  </div>
+</body>
+
+</html>

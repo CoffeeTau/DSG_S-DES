@@ -1,3 +1,11 @@
+![Language](https://img.shields.io/badge/language-python-brightgreen) 
+
+![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen)
+
+![badge](https://img.shields.io/badge/Default%20Security%20Group-Introduction%20to%20Information%20Security-green.svg?logo=unity)
+
+
+> 目录
 - [关卡测试报告【共5关】](#关卡测试报告共5关)
   - [第一关-基本测试](#第一关-基本测试)
   - [第二关-交叉测试](#第二关-交叉测试)
@@ -92,9 +100,11 @@ Spearman统计量的p值为`0.094`，显著拒绝明文和密文具有相关性�
    pip install -r requirements.txt
    ```
 ## 代码结构
-!!!!!!!! 把前后端与算法合并 !!!!!!!!
+
 ## 模块说明
 ### 算法部分
+
+
 ### 前后端部分
 
 # 用户指南

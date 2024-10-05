@@ -132,15 +132,18 @@ class StatisticalAnalysis:
     # 单次暴力破解测试 -> 对于一个明密文对来说，可能有多个密钥与之对应
     def bruteForceAttack(self, plainText, cipherText):
 
+        guessKeyArr = []
+
         cnt = 1
         start_time = time.time()
         for guessKey in range(2 ** 10):
             if np10ToDecimal(cipherText) == np10ToDecimal(self.sdes.encryptOrDecrypt(plainText, decimalToNp10(guessKey), 'E')):
+                guessKeyArr.append(decimalToNp10(guessKey))
                 print("暴力解出的密钥%d是:" % cnt, decimalToNp10(guessKey))   # 注意，这里的结果不止一个
                 time_taken = time.time() - start_time
                 cnt += 1
 
-        return time_taken
+        return time_taken, guessKeyArr
 
     # 寻找碰撞
     # def foundCollision(self):
@@ -165,14 +168,14 @@ if __name__ == '__main__':
     rho, p_value = SA.correlationAnalysis('K-C', 'Spearman')
     print("密钥和密文的Spearman统计量:", rho)
     print("密钥和密文的Spearman的p值:", p_value)
-    #
-    # # 在调用 avalancheTest 之前输出调试信息
-    # print("Before avalanche test")
-    # diffusion_proportion, confusion_proportion = SA.avalancheTest()
-    # print("After avalanche test")
-    #
-    # print("明文雪崩效应比例:", diffusion_proportion)
-    # print("密钥雪崩效应比例:", confusion_proportion)
+
+    # 在调用 avalancheTest 之前输出调试信息
+    print("Before avalanche test")
+    diffusion_proportion, confusion_proportion = SA.avalancheTest()
+    print("After avalanche test")
+
+    print("明文雪崩效应比例:", diffusion_proportion)
+    print("密钥雪崩效应比例:", confusion_proportion)
 
     # # 绘制散点图
     # plt.scatter(plainText_decimal, cipherText_decimal, c='blue', s=3)
@@ -202,12 +205,14 @@ if __name__ == '__main__':
     # print("明文与密文的异或为0的个数:", xor_zero_count)
 
 
+    # 进行暴力破解
+    plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])
+    cipherText = np.array([1, 1, 1, 1, 0, 1, 1, 0])
+    time_taken, _ = SA.bruteForceAttack(plainText, cipherText)
+    print("用时:", time_taken)
 
-    # # 进行暴力破解
-    # plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])
-    # cipherText = np.array([1, 1, 1, 1, 0, 1, 1, 0])
-    # time_taken = SA.bruteForceAttack(plainText, cipherText)
-    # print("用时:", time_taken)
+
+    # 寻找碰撞
 
 
 

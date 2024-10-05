@@ -146,7 +146,27 @@ class StatisticalAnalysis:
         return time_taken, guessKeyArr
 
     # 寻找碰撞
-    # def foundCollision(self):
+    # 寻找碰撞
+    def foundCollision(self, plainText):
+        collisionKeys = {}
+
+        for guessKey in range(2 ** 10):  # 遍历所有可能的密钥
+            guessKey_bin = decimalToNp10(guessKey)
+            cipherText = self.sdes.encryptOrDecrypt(plainText, guessKey_bin, 'E')
+            cipherText_str = ''.join(map(str, cipherText))
+
+            # 如果密文已经存在，说明产生了碰撞，记录密钥
+            if cipherText_str in collisionKeys:
+                collisionKeys[cipherText_str].append(guessKey_bin)
+            else:
+                collisionKeys[cipherText_str] = [guessKey_bin]
+
+        # 输出所有有密钥碰撞的情况
+        for cipherText_str, keys in collisionKeys.items():
+            if len(keys) > 1:  # 找到至少两个密钥对应相同密文的情况
+                print(f"密文: {cipherText_str} 对应的多个密钥 -> {keys}")
+
+        return collisionKeys
 
 
 
@@ -206,6 +226,7 @@ if __name__ == '__main__':
 
 
     # 进行暴力破解
+    print("暴力破解 ------------------------------------------------------")
     plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])
     cipherText = np.array([1, 1, 1, 1, 0, 1, 1, 0])
     time_taken, _ = SA.bruteForceAttack(plainText, cipherText)
@@ -213,7 +234,9 @@ if __name__ == '__main__':
 
 
     # 寻找碰撞
-
+    print("寻找碰撞 ------------------------------------------------------")
+    plainText = np.array([1, 1, 1, 0, 0, 0, 0, 0])  # 固定明文
+    collision_result = SA.foundCollision(plainText)
 
 
 

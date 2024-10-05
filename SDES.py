@@ -107,15 +107,15 @@ class SDES:
         return ''.join(decrypted_chars)
 
 if __name__ == "__main__":
-    p = np.array([0, 0, 0, 0, 0, 0, 0, 0])
-    key = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    p = np.array([1, 1, 1, 0, 0, 0, 0, 0])
+    key = np.array([0,1,0,0,0,0,0,0,0,0])
     # c = np.array([1,1,1,0,1,0,1,1])
     sdes = SDES()
     p = sdes.encryptOrDecrypt(p, key, 'E')
     print("bit密文:", p)
 
-    p_str = "Default Security Group"
-    encrypted_result = sdes.encryptString(p_str, key)
-    print("字符串密文:", encrypted_result)
-    decrypted_result = sdes.decryptString(encrypted_result, key)
-    print("字符串明文:", decrypted_result)
+    # p_str = "Default Security Group"
+    # encrypted_result = sdes.encryptString(p_str, key)
+    # print("字符串密文:", encrypted_result)
+    # decrypted_result = sdes.decryptString(encrypted_result, key)
+    # print("字符串明文:", decrypted_result)

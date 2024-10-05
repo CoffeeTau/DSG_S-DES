@@ -100,14 +100,101 @@ Spearman统计量的p值为`0.094`，显著拒绝明文和密文具有相关性�
    pip install -r requirements.txt
    ```
 ## 代码结构
+代码结构如下图所示：
 
 ## 模块说明
 ### 算法部分
+#### f 函数
+`f` 函数由类 `Function_f` 实现，主要实现 SDES 算法中的轮函数操作。类中定义了 2 个 P 盒和 2 个 S 盒，成员函数功能如下：
+
+- **`expandBlock`**：将输入经过 P 盒Ⅰ的 4 位扩展为 8 位。
+- **`sBoxSubstitution`**：将输入经过 S 盒替换，由 8 位转换为 4 位。
+- **`permutationBlock`**：将输入经过 P 盒Ⅱ进行 4 位置换。
+- **`round`**：实现一次轮函数计算。
+- **`calculate`**：整合所有操作，完成 `f` 函数的整体计算过程。
+
+#### 初始置换IP
+初始置换功能由类 `IP` 实现。类中定义了初始置换函数 `initialP` ，以及逆初始置换函数 `initialP_Inverse`。
+
+#### 子密钥生成算法
+子密钥生成功能由类 `SubKeyGenerator` 实现。类中定义了2个P盒，第一次轮换函数 `subKeyGenerateShift1` ，第二次轮换函数 `subKeyGenerateShift2` ，以及总子密钥生成函数 `generate` 。
+
+#### 交换SW
+交换功能由类 `SW` 实现。类中定义了交换函数 `swap`。
+
+#### SDES算法
+SDES算法的集成实现由类 `SDES` 完成。`SDES` 类实现了 SDES 算法的加密与解密过程，包含以下主要功能：
+- **`padString` 和 `unpadString`**：用于对字符串进行填充和去填充，确保数据长度符合 8 位分组的要求。
+- **`encryptOrDecrypt`**：根据输入的密钥和操作类型（加密/解密）执行核心算法，包含两轮 `f` 函数计算、交换操作和初始置换。
+- **`encryptString` 和 `decryptString`**：将字符串按字节或位操作进行加密和解密，输出最终的密文或明文。
+
+#### 统计分析
+`StatisticalAnalysis` 类实现了对 SDES 算法的统计分析功能，主要包括明文、密钥和密文的生成、相关性分析、雪崩效应检验、暴力破解测试以及寻找碰撞等。类中的主要成员函数和功能如下：
+
+- **`generateGroup(num)`**: 
+  - 生成指定数量的明文、密钥和密文组合，并保存至 CSV 文件。
+  - 返回转换为十进制的明文、密钥和密文数组。
+
+- **`correlationAnalysis(pair, type)`**: 
+  - 计算明文-密文 (P-C) 或密钥-密文 (K-C) 之间的相关性。
+  - 支持 Pearson 和 Spearman 两种相关性分析方法。
+
+- **`avalancheTest()`**: 
+  - 检验明文和密钥微小变化引起的雪崩效应 (Diffusion 和 Confusion)。
+  - 通过统计微小变化导致的密文输出差异比例来评估雪崩效应。
+
+- **`bruteForceAttack(plainText, cipherText)`**: 
+  - 对给定的明文和密文进行暴力破解。
+  - 返回暴力破解所需的时间以及可能的密钥列表。
+
+- **`foundCollision(plainText)`**: 
+  - 寻找与给定明文对应的多个密钥产生相同密文的情况。
+  - 输出所有密文与密钥碰撞的情况。
+
+#### 工具utils
+- **`sbox_index(block, axis)`**: 
+  - 输入一个二进制块 `block` 和指定的轴（'x' 或 'y'）。
+  - 计算并返回置换盒元素在指定轴上的索引。
+  - 根据输入的轴选择相应的比特位进行转换。
+
+- **`convert_to_np_array(column)`**: 
+  - 接收一个列数据，检查其元素类型，并将包含二进制字符串的元素转换为 NumPy 数组。
+  - 返回一个 NumPy 数组，其中所有二进制字符串均被转换为 NumPy 数组。
+
+- **`convert_to_decimal(binary_arr)`**: 
+  - 将二进制字符串数组转换为十进制整数。
+  - 验证输入的二进制字符串是否有效，如果无效，则引发 `ValueError`。
+  - 返回一个包含对应十进制整数的 NumPy 数组。
+
+- **`np10ToDecimal(block)`**: 
+  - 接收长度为 10 的二进制 NumPy 数组 `block`。
+  - 将其转换为十进制整数并返回。
+
+- **`decimalToNp10(decimal_value)`**: 
+  - 将给定的十进制数 `decimal_value` 转换为 10 位二进制字符串。
+  - 如果转换后的二进制数少于 10 位，则在左侧用 0 填充。
+  - 返回一个 NumPy 数组，元素为 0 和 1。
 
 
 ### 前后端部分
 
 # 用户指南
 
+
+
 # 常见问题
 
+## 1. **什么是 SDES 算法？**
+   SDES（简易数据加密标准）是一种对称加密算法，使用 10 位密钥和 8 位明文，通过多个置换和替换步骤将明文转换为密文。
+
+## 2. **如何生成明文、密钥和密文组？**
+   可以使用 `generateGroup(num)` 函数生成指定数量的明文、密钥和密文组。该函数会生成随机的明文和密钥，并通过 SDES 算法加密生成相应的密文。
+
+## 3. **如何进行相关性分析？**
+   使用 `correlationAnalysis(pair, type)` 函数可以分析明文与密文、密钥与密文之间的相关性。可以选择使用 Pearson 或 Spearman 方法来计算相关系数。
+
+## 4. **什么是雪崩效应？**
+   雪崩效应指的是在加密过程中，输入的微小变化会导致输出发生显著变化。使用 `avalancheTest()` 函数可以验证明文和密钥的微小变化是否导致密文的明显变化。
+
+## 5. **如何进行暴力破解？**
+   使用 `bruteForceAttack(plainText, cipherText)` 函数可以对给定的明文和密文进行暴力破解。该函数会遍历所有可能的密钥，并记录找到的匹配密钥及所需时间。

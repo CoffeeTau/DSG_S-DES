@@ -26,7 +26,7 @@ class Function_f:
     def expandBlock(self, block):
         return block[self.EPBox - 1]
 
-    # s盒置换 (8 -> 4)
+    # s盒替换 (8 -> 4)
     def sBoxSubstitution(self, block):
         left = block[:4]
         right = block[4:]

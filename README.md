@@ -42,7 +42,10 @@
 ![system-S-DES3.png](images/system-S-DES3.png)
 - 标准输入四：ASSIC类型的明文或密文，10bit的密钥，解密结果如下
 ![system-S-DES4.png](images/system-S-DES4.png)
-- 特殊输入一：密钥输入格式不正确
+- 特殊输入一：密钥输入位数不正确，提示用户输入正确的密钥格式
+![system-S-DES5.png](images/system-S-DES5.png)
+- 特殊输入二：密钥输入格式不是bit，或当选中明密文输入类型为Bit时，输入的不是Bit类型数据，提示用户输入正确的格式
+![system-S-DES5.png](images/system-S-DES5.png)
 
 
 ## 第二关-交叉测试

@@ -121,8 +121,11 @@ def encrypt():
     # 检查输入是否为空
     if not message or not key:
         return jsonify(error="Message and key cannot be empty."), 400
+    # 确保 message 和 key 是二进制字符串 (只包含'0'和'1')
+    if not all(c in '01' for c in message) or not all(c in '01' for c in key):
+        return jsonify(error="Message and key must be binary strings."), 400
 
-    print(f"Encoding Type: {encoding_type}, Message: {message}, Key: {key}")  # Debugging line
+    print(f"Encoding Type: {encoding_type}, Message: {message}, Key: {key}")
 
     sdes = SDES()
 
@@ -130,17 +133,31 @@ def encrypt():
         message = np.array(list(map(int, message)), dtype=np.uint8)
         key = np.array(list(map(int, key)), dtype=np.uint8)
 
-        if len(message) != 8 or len(key) != 10:
+        if len(key) != 10:
             return jsonify(error="Invalid message or key length."), 400
 
-        encrypted_message = sdes.encryptOrDecrypt(message, key, 'E')
-        encrypted_message = encrypted_message.tolist()  # Convert to list
+        groups = [message[i:i + 8] for i in range(0, len(message), 8)]
+        # 如果最后一组不满8位，用'0'补齐
+        if len(groups[-1]) < 8:
+            groups[-1] = np.pad(groups[-1], (0, 8 - len(groups[-1])), 'constant')
+
+        encrypted_message = ""
+
+        for arr in groups:
+
+            encrypted = sdes.encryptOrDecrypt(arr, key, 'E')
+            encrypted_message_str = ''.join(map(str, encrypted))
+            encrypted_message += encrypted_message_str
+
+
     else:
         key = np.array(list(map(int, key)), dtype=np.uint8)
         encrypted_message = sdes.encryptString(message, key)
 
-    print(f"Encrypted Message: {encrypted_message}")  # Debugging line
+    print(f"Encrypted Message: {encrypted_message}")
     return jsonify(result=encrypted_message)
+
+
 
 
 @app.route('/decrypt', methods=['POST'])
@@ -161,11 +178,21 @@ def decrypt():
         message = np.array(list(map(int, message)), dtype=np.uint8)
         key = np.array(list(map(int, key)), dtype=np.uint8)
 
-        if len(message) != 8 or len(key) != 10:
+        if len(key) != 10:
             return jsonify(error="Invalid message or key length."), 400
 
-        decrypted_message = sdes.encryptOrDecrypt(message, key, 'D')
-        decrypted_message = decrypted_message.tolist()  # Convert to list
+        groups = [message[i:i + 8] for i in range(0, len(message), 8)]
+        # 如果最后一组不满8位，用'0'补齐
+        if len(groups[-1]) < 8:
+            groups[-1] = np.pad(groups[-1], (0, 8 - len(groups[-1])), 'constant')
+
+        decrypted_message = ""
+
+        for arr in groups:
+            decrypted = sdes.encryptOrDecrypt(arr, key, 'E')
+            decrypted_message_str = ''.join(map(str, decrypted))
+            decrypted_message += decrypted_message_str
+
     else:
         key = np.array(list(map(int, key)), dtype=np.uint8)
         decrypted_message = sdes.decryptString(message, key)
@@ -188,7 +215,7 @@ def bruteForce():
     SA = StatisticalAnalysis()
     message_plain = np.array(list(map(int, message_plain)), dtype=np.uint8)
     message_cipher = np.array(list(map(int, message_cipher)), dtype=np.uint8)
-
+    
     time_taken, key = SA.bruteForceAttack(message_plain, message_cipher)
     key = [k.tolist() if isinstance(k, np.ndarray) else k for k in key]  # Convert numpy arrays to lists
     return jsonify(time=time_taken,key=key)

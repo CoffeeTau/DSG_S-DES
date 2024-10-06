@@ -36,7 +36,13 @@
 针对明文，有Bit和ASSIC两种不同的输入类型，分别进行测试，测试情况如下：
 - 标准输入一：8bit的明文或密文，10bit的密钥，加密结果如下
 ![system-S-DES.png](images/system-S-DES.png)
-解密结果如下：
+- 标准输入二：8bit的明文或密文，10bit的密钥，解密结果如下
+![system-S-DES1.png](images/system-S-DES.png)
+- 标准输入三：ASSIC类型的明文或密文，10bit的密钥，加密结果如下
+![system-S-DES3.png](images/system-S-DES3.png)
+- 标准输入四：ASSIC类型的明文或密文，10bit的密钥，解密结果如下
+![system-S-DES4.png](images/system-S-DES4.png)
+- 特殊输入一：密钥输入格式不正确
 
 
 ## 第二关-交叉测试

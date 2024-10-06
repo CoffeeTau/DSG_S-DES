@@ -33,20 +33,30 @@
 
 # 关卡测试报告【共5关】
 ## 第一关-基本测试
-针对明文，有Bit和ASSIC两种不同的输入类型，分别进行测试，测试情况如下：
+### 针对明文和密文，有Bit和ASSIC两种不同的输入类型，分别进行标准输入测试和非法输入测试，测试情况如下：
 - 标准输入一：8bit的明文或密文，10bit的密钥，加密结果如下
+
 ![system-S-DES.png](images/system-S-DES.png)
+
 - 标准输入二：8bit的明文或密文，10bit的密钥，解密结果如下
+
 ![system-S-DES1.png](images/system-S-DES.png)
+
 - 标准输入三：ASSIC类型的明文或密文，10bit的密钥，加密结果如下
+
 ![system-S-DES3.png](images/system-S-DES3.png)
+
 - 标准输入四：ASSIC类型的明文或密文，10bit的密钥，解密结果如下
+ 
 ![system-S-DES4.png](images/system-S-DES4.png)
+
 - 特殊输入一：密钥输入位数不正确，提示用户输入正确的密钥格式
-![system-S-DES5.png](images/system-S-DES5.png)
-- 特殊输入二：密钥输入格式不是bit，或当选中明密文输入类型为Bit时，输入的不是Bit类型数据，提示用户输入正确的格式
+
 ![system-S-DES5.png](images/system-S-DES5.png)
 
+- 特殊输入二：密钥输入格式不是bit，或当选中明密文输入类型为Bit时，输入的不是Bit类型数据，提示用户输入正确的格式
+  
+![system-S-DES6.png](images/system-S-DES6.png)
 
 ## 第二关-交叉测试
 ### 加密
@@ -118,7 +128,8 @@
 
 - 如图所示, 测试通过。
 ## 第四关-暴力破解
-
+### 采用遍历的方式，尝试将所有可能的密钥（ 0 到 2^10 - 1），对每一个密钥进行加密，生成密文。将生成的密文与已知的密文进行比对。如果匹配，则记录下该密钥，并输出找到的次数和密钥并记录消耗的时间，具体界面如下：
+![system-brushForce.png](images/system-brushForce.png)
 ## 第五关-封闭测试
 
 # 算法统计分析
